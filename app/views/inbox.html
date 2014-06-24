@@ -1,0 +1,61 @@
+
+<div class="container-fluid">
+<div style="margin-bottom:10px;"><button type="button" class="btn btn-success">Delete Messages</button> <button type="button" class="btn btn-success"  data-toggle="modal" 
+   data-target="#myModal">Add Message</button>
+   <div class="row">
+<div class="col-md-3" style="margin-top:10px">
+   <input type="search" ng-model="query"
+         placeholder="Search">
+         </div></div>
+
+</div>
+<div class="table-responsive">
+    <table class="table table-condensed btn-success" >
+        <thead>
+            <tr>
+              <th><input type="checkbox" ng-model="status"  ng-change="checkAll(status)"  class="checkAll"/></th>
+                <th>Messages</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="data in inboxData |filter:query">
+                <td><input type="checkbox" id="{{data.id}}"  ng-checked=data.selected class="checkOne"/></td>
+                <td><p>
+                {{data.message}}
+                
+                </p>
+                </td>
+
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+               Add Message
+            </h4>
+         </div>
+         <div class="modal-body">
+            <textarea cols="85" rows="10" id="txtMessage" ng-model="message"></textarea>
+         </div>
+         <div class="modal-footer">
+            <button type="button" id="close" class="btn btn-default" 
+               data-dismiss="modal">Close
+            </button>
+            <button type="button" ng-click="addMessage(message)" class="btn btn-success" data-dismiss="modal">
+               Submit changes
+            </button>
+         </div>
+      </div><!-- /.modal-content -->
+</div><!-- /.modal -->
+</div>

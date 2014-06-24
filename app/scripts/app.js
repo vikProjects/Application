@@ -8,5 +8,26 @@
  *
  * Main module of the application.
  */
-angular
-  .module('mainappApp', []);
+  var mainappApp = angular.module('mainappApp', ['ngRoute']);
+
+	// configure our routes
+	mainappApp.config(['$routeProvider',function($routeProvider) {
+		$routeProvider
+			// route for the home page
+			.when('/', {
+				templateUrl : 'views/main.html',
+				controller  : 'MainCtrl'
+			})
+
+			// route for the about page
+			.when('/inbox', {
+				templateUrl : 'views/inbox.html',
+				controller  : 'inboxCtrl'
+			})
+
+			// route for the contact page
+			.when('/contact', {
+				templateUrl : 'views/main.html',
+				controller  : 'MainCtrl'
+			});
+	}]);
