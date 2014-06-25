@@ -26,8 +26,8 @@
 			})
 
 			// route for the contact page
-			.when('/contact', {
-				templateUrl : 'views/main.html',
-				controller  : 'MainCtrl'
+			.when('/buildingchart', {
+				templateUrl : 'views/buildingchart.html',
+				controller  : 'svgCtrl'
 			});
 	}]);
